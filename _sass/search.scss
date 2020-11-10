@@ -61,6 +61,7 @@
     padding-left: #{$gutter-spacing + $sp-5};
     font-size: 14px;
     background-color: $body-background-color;
+    color: $search-text-color;
     transition: padding-left linear #{$transition-duration / 2};
   }
 
