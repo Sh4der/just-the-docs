@@ -481,10 +481,12 @@ jtd.onReady(function(){
   {%- if site.search_enabled != false %}
   initSearch();
   {%- endif %}
+  {%- if site.hideThemeButton == false %}
   var themeType = window.localStorage.getItem("theme");
   if(themeType === "dark" || themeType === "light")
     jtd.setTheme(themeType);
-  addThemeButton();
+    addThemeButton();
+  {%- endif %}
 });
 
 })(window.jtd = window.jtd || {});

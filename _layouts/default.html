@@ -78,8 +78,10 @@ layout: table_wrappers
       {% endif %}
     </nav>   
     <footer class="site-footer">
+      {%- if site.hideThemeButton == false %}
       <svg class="js-toggle-dark-mode" width="24" height="24" viewBox="0 0 24 24" ><use xlink:href="#svg-moon"></use> </svg>
       <br>
+      {%- endif %}
       <a>This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</a>
     </footer>
   </div>
