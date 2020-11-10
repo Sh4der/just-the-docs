@@ -457,6 +457,21 @@ jtd.setTheme = function(theme) {
   cssFile.setAttribute('href', '{{ "assets/css/just-the-docs-" | absolute_url }}' + theme + '.css');
 }
 
+function addThemeButton()
+{
+  const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+  
+  jtd.addEvent(toggleDarkMode, 'click', function(){
+    if (jtd.getTheme() === 'dark') {
+      jtd.setTheme('light');
+      toggleDarkMode.getElementsByTagName('use')[0].setAttribute('xlink:href', '#svg-moon');
+    } else {
+      jtd.setTheme('dark');
+      toggleDarkMode.getElementsByTagName('use')[0].setAttribute('xlink:href', '#svg-sun');
+    }
+  });
+}
+
 // Document ready
 
 jtd.onReady(function(){
@@ -464,6 +479,7 @@ jtd.onReady(function(){
   {%- if site.search_enabled != false %}
   initSearch();
   {%- endif %}
+  addThemeButton();
 });
 
 })(window.jtd = window.jtd || {});
