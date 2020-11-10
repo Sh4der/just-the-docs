@@ -462,11 +462,13 @@ function addThemeButton()
   const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
   
   jtd.addEvent(toggleDarkMode, 'click', function(){
-    if (jtd.getTheme() === 'dark') {
+    if (window.localStorage.getItem("theme") === 'dark') {
       jtd.setTheme('light');
+      window.localStorage.setItem("theme", "light");
       toggleDarkMode.getElementsByTagName('use')[0].setAttribute('xlink:href', '#svg-moon');
     } else {
       jtd.setTheme('dark');
+      window.localStorage.setItem("theme", "dark");
       toggleDarkMode.getElementsByTagName('use')[0].setAttribute('xlink:href', '#svg-sun');
     }
   });
@@ -479,6 +481,9 @@ jtd.onReady(function(){
   {%- if site.search_enabled != false %}
   initSearch();
   {%- endif %}
+  var themeType = window.localStorage.getItem("theme");
+  if(themeType === "dark" || themeType === "light")
+    jtd.setTheme(themeType);
   addThemeButton();
 });
 
