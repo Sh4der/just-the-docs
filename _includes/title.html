@@ -1,4 +1,7 @@
-{% if site.logo %}
+{% if site.logo and site.title %}
+  {{ site.title }}
+  <div class="site-logo"></div>
+{% elsif site.logo %}
   <div class="site-logo"></div>
 {% else %}
   {{ site.title }}

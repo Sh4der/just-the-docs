@@ -485,6 +485,8 @@ jtd.onReady(function(){
   var themeType = window.localStorage.getItem("theme");
   if(themeType === "dark" || themeType === "light")
     jtd.setTheme(themeType);
+  else
+    jtd.setTheme("dark");
     addThemeButton();
   {%- endif %}
 });
